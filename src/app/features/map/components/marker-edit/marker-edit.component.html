@@ -1,0 +1,47 @@
+<div class="flex-container">
+  <div>
+    <form>
+      <app-search
+        [address]="newAddress"
+        (addressEvent)="onAddress($event)"
+        [modeCreate]="true"
+      ></app-search>
+
+      <button mat-raised-button (click)="onAddMarker()" color="primary">
+        ADD
+      </button>
+    </form>
+  </div>
+
+  <div style="height: 24px"></div>
+
+  <div class="flex-container-items">
+    <div *ngFor="let item of markerCity$ | async" class="box">
+      <label [attr.for]="'ville'">{{ item.city.name }}</label>
+      <br /><br />
+      <app-search
+        #search
+        [id]="item.id"
+        [address]="item.city.name"
+        (addressEvent)="onAddress($event)"
+      ></app-search>
+
+      <button
+        mat-raised-button
+        class="delete"
+        (click)="onRemoveMarker(item)"
+        color="warn"
+      >
+        DELETE
+      </button>
+      <button
+        mat-raised-button
+        (click)="search.edit = true"
+        [disabled]="!search.disabled"
+        color="secondary"
+      >
+        EDIT
+      </button>
+    </div>
+  </div>
+</div>

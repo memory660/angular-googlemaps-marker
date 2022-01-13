@@ -1,0 +1,5 @@
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onPage('page1')">Page 1 - carte</button>
+  <button mat-menu-item (click)="onPage('page2')">Page 2 - édition</button>
+</mat-menu>

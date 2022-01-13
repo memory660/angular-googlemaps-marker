@@ -1,0 +1,19 @@
+<div class="flex-container-col">
+  <button mat-raised-button (click)="onLocalisation()">Localisation</button>
+
+  <hr />
+
+  <agm-map
+    *ngIf="cMarker"
+    [latitude]="cMarker.latitude"
+    [longitude]="cMarker.longitude"
+    [zoom]="cMarker.zoom"
+  >
+    <app-marker [marker]="cMarker"></app-marker>
+
+    <app-marker
+      *ngFor="let markerCity of markersCity$ | async"
+      [marker]="markerCity.marker"
+    ></app-marker>
+  </agm-map>
+</div>
