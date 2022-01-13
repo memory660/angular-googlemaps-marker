@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiGoogleKey: 'AIzaSyCUlyGF3ip99Z2m03NHmRWcOe5AnNIOdNg',
+  apiGoogleKey: '',
   cities: [
     'rome italie',
     'paris france',
